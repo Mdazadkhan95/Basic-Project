@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otp Generate</title>
+    <style>
+        body{
+            height: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .container{
+            margin-top: 7rem;
+            padding: 2.5rem;
+            font-size: 1rem;
+            border: 2px solid black;
+        }
+        input{
+            height: 30px;
+            width: 14rem;
+        }
+        button{
+            height: 34px;
+            width: 6rem;
+            letter-spacing: 2px;
+            margin-left: 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background-color: blueviolet;
+            color: yellowgreen;
+        }
+        
+        button:hover{
+            background-color: aqua;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+            <input type="text">
+            <button>click  me</button>
+            <p></p>
+        
+    </div>
+
+
+
+    <script>
+        let btn = document.querySelector("button");
+        btn.addEventListener('click' , () => {
+            let input = document.querySelector("input").value;
+            let p = document.querySelector("p");
+            let otp = generateOtp(input);
+            p.innerHTML = otp;
+            input.preventDefault();
+        })
+       
+        function generateOtp(input){
+            let otp = "";
+            if(input == 4){
+                for(let i = 0; i<4; i++){
+                otp += Math.floor(Math.random()*10).toString();
+                }
+            }
+            
+            else if(input == 6){
+                for(let i = 0; i<6; i++){
+                otp += Math.floor(Math.random()*10).toString();
+                }
+            }
+            else {
+                otp = "pleas enter a valid no.";
+                // console.log(otp);
+            }
+            return otp
+        }
+
+        // let form = document.querySelector("form")
+        // form.addEventListener("submit", () => {
+        //     input.preventDefault();  
+        // })
+    </script>
+</body>
+</html>
